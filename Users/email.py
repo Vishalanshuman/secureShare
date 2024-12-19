@@ -1,3 +1,8 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import os
+
 def get_email_body(new_user,verification_url):
     email_body = f"""
     <!DOCTYPE html>
@@ -24,3 +29,21 @@ def get_email_body(new_user,verification_url):
     </html>
     """
     return email_body
+
+def send_email(new_user,email_body):
+    try:
+        subject = "Email Verification - File Sharing System"  
+        message = MIMEMultipart('alternative', None, [MIMEText(email_body, 'html')])
+        message['Subject'] = subject
+        message['From'] = os.getenv('MAIL_USERNAME')
+        message['To'] = new_user.email
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)  
+        server.ehlo()
+        server.starttls()
+        server.login(os.getenv('MAIL_USERNAME'), os.getenv('MAIL_PASSWORD'))
+        server.sendmail(os.getenv('MAIL_USERNAME'), new_user.email, message.as_string())
+        server.quit()
+        return f"Email sent: {subject}"
+    except Exception as e:
+        return f'Error in sending mail: {e}'

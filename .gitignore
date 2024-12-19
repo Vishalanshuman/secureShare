@@ -1,3 +1,49 @@
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Install logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Environments
+*.env
+.env.*
+
+# SQLite
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+
+# Static / Media Files
+# static/
 nvenv
-**__pycache__
-.env
+media/

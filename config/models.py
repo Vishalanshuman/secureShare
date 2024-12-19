@@ -13,17 +13,15 @@ class User(Base):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, index=True)
-    # username = Column(String(50), unique=True, nullable=False)
     email = Column(String(100), unique=True, nullable=False)
-    password = Column(String(200), nullable=False)  # Store hashed passwords
-    role = Column(Enum(UserRole), nullable=False)  # Enum for roles
+    password = Column(String(200), nullable=False)  
+    role = Column(Enum(UserRole), nullable=False)  
     is_verified = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     uploaded_files = relationship("File", back_populates="user")
     download_links = relationship("SecureDownloadLink", back_populates="client")
 
-# File Model
 class File(Base):
     __tablename__ = 'files'
 
