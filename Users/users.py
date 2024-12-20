@@ -5,10 +5,6 @@ from config.schemas import UserCreate, UserResponse
 from .auth import get_hashed_password,validate_password,create_jwt_token
 from config.schemas import UserRole,UserResponse,UserCreate,UserLogin,EmailVerificationResponse
 from config.database import get_db
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-import os
 from dotenv import load_dotenv
 from .email import get_email_body,send_email
 load_dotenv()

@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "7aeceefe-cd38-4d37-b236-c260037ff62d",
+		"name": "secure_share",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25072958"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "SIGNUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"vishal@email.com\",\r\n    \"password\":\"Password@123\",\r\n    \"role\":\"CLIENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"vishalanshuman@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "files",
+			"item": [
+				{
+					"name": "upload files",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIn0.DLXMS8JeC50jAe5_yB0TRRpAsX13IZ5NnhMTTiQ3cPY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Asus/Downloads/output1.xlsx"
+								}
+							]
+						},
+						"url": "http://localhost:8000/files/upload"
+					},
+					"response": []
+				},
+				{
+					"name": "download file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIn0.14O4Op_gDxpOD1w4T3qQq_uQofVVM9llEragW6sQXds"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/files/download/E9B4MELp2j1rPOcWoGqYwVIA4TtNVuEEL44kPCHWw4Y"
+					},
+					"response": []
+				},
+				{
+					"name": "Generete Download Link",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIn0.14O4Op_gDxpOD1w4T3qQq_uQofVVM9llEragW6sQXds"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIn0.14O4Op_gDxpOD1w4T3qQq_uQofVVM9llEragW6sQXds"
+							},
+							{
+								"key": "Cookie",
+								"value": "csrftoken=HUd3blcGamn5YbbcHYLR80QilFoDXXyj; csrftoken=HUd3blcGamn5YbbcHYLR80QilFoDXXyj"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:8000/files/1/generate-secure-link"
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL Files",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIn0.14O4Op_gDxpOD1w4T3qQq_uQofVVM9llEragW6sQXds"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIn0.DLXMS8JeC50jAe5_yB0TRRpAsX13IZ5NnhMTTiQ3cPY"
+							},
+							{
+								"key": "Cookie",
+								"value": "csrftoken=HUd3blcGamn5YbbcHYLR80QilFoDXXyj"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Asus/Downloads/output1.xlsx"
+								}
+							]
+						},
+						"url": "http://localhost:8000/files"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

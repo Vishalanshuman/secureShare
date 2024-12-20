@@ -35,11 +35,9 @@ htmlcov/
 *.env
 .env.*
 
-# SQLite
 *.sqlite3
 *.db
 
-# Logs
 *.log
 logs/
 
